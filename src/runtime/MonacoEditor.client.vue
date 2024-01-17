@@ -71,7 +71,8 @@ defineExpose({
 })
 
 onMounted(() => {
-  editor = monaco.editor.create(editorElement.value!, defu(props.options, defaultOptions))
+  setTimeout(() => {
+    editor = monaco.editor.create(editorElement.value!, defu(props.options, defaultOptions))
   editorRef.value = editor
   model = monaco.editor.createModel(props.modelValue, lang.value)
   editor.setModel(model)
@@ -80,6 +81,7 @@ onMounted(() => {
   })
   isLoading.value = false
   emit('load', editor)
+  });
 })
 
 onUnmounted(() => {
