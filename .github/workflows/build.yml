@@ -14,11 +14,11 @@ jobs:
             - uses: actions/setup-node@v4.0.1
               with:
                 node-version: 20.10.0
-                cache: "pnpm"
+                cache: "yarn"
             - name: Install dependencies
-              run: pnpm install
+              run: yarn
             - name: Build
-              run: pnpm build
+              run: yarn build
             - name: Download artifacts
               uses: actions/download-artifact@v4.1.1
               with:
